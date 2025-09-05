@@ -11,8 +11,8 @@
 set -e # Exit immediately if a command exits with a non-zero status.
 
 # --- Configuration ---
-REPO_URL="https://github.com/your-username/my-arch-playbook.git" # IMPORTANT: Change this to your repository URL
-WORK_DIR="/tmp/my-arch-playbook"
+REPO_URL="https://github.com/sirmonteiro/setup-playbook.git"
+WORK_DIR="/tmp/setup-playbook"
 
 # --- Functions ---
 prompt_sudo() {
