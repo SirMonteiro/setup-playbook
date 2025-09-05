@@ -1,8 +1,8 @@
 ---
 # User-specific variables for dotfiles
 # Ansible will prompt for these values when the playbook runs.
-user_name: "Gabriel"
-user_email: "sirmonteiro@tuta.io"
+#user_name: "Gabriel"
+#user_email: "sirmonteiro@tuta.io"
 
 # --- Package Lists ---
 
@@ -15,6 +15,9 @@ core_packages:
   - wget
   - zsh
   - openssh
+  - zsh-theme-powerlevel10k
+  - zsh-syntax-highlighting
+  - zsh-autosuggestions
 
 # Command-line utilities for an enhanced terminal experience.
 cli_tools_packages:
@@ -31,6 +34,9 @@ cli_tools_packages:
   - zip
   - chezmoi
   - ncdu
+  - less
+  - bitwarden-cli
+  - sassc
 
 # Packages for the Hyprland desktop environment and its ecosystem.
 hyprland_packages:
@@ -63,6 +69,7 @@ hyprland_packages:
   - brightnessctl
   - ttf-jetbrains-mono-nerd # Font for Waybar/Terminal
   - otf-monaspace-nerd    # Font for Ghostty/Zed from your dotfiles
+  - flatpak
 
 # GUI applications.
 desktop_apps_packages:

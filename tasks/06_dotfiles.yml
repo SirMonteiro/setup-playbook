@@ -8,5 +8,5 @@
   args:
     creates: "{{ ansible_env.HOME }}/.local/share/chezmoi"
   environment:
-    EMAIL: "{{ lookup('env', 'EMAIL') }}"
-    NAME: "{{ lookup('env', 'NAME') }}"
+    EMAIL: "{{ EMAIL }}"
+    NAME: "{{ NAME }}"

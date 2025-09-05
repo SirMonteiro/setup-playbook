@@ -46,10 +46,17 @@ echo "==> Synchronizing package databases and updating system..."
 echo "$PASSWORD" | sudo -S pacman -Syyu --noconfirm
 
 echo "==> Installing prerequisites (git, python, pip)..."
-echo "$PASSWORD" | sudo -S pacman -S --noconfirm --needed git python python-pip ansible
+echo "$PASSWORD" | sudo -S pacman -S --noconfirm --needed git ansible-core bitwarden-cli
 
 # Ensure ~/.local/bin is in the PATH for the current script execution
 export PATH="$HOME/.local/bin:$PATH"
+
+bw login --check
+if [ $? -ne 0 ]; then
+  echo "Not logged in. Please login now."
+  bw login
+fi
+export BW_SESSION=$(bw unlock --raw)
 
 echo "==> Cloning the playbook repository to $WORK_DIR..."
 rm -rf "$WORK_DIR"
