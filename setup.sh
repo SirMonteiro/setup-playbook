@@ -43,10 +43,7 @@ echo "==> Synchronizing package databases and updating system..."
 echo "$PASSWORD" | sudo -S pacman -Syyu --noconfirm
 
 echo "==> Installing prerequisites (git, python, pip)..."
-echo "$PASSWORD" | sudo -S pacman -S --noconfirm --needed git python python-pip
-
-echo "==> Installing Ansible..."
-pip install --user ansible
+echo "$PASSWORD" | sudo -S pacman -S --noconfirm --needed git python python-pip ansible
 
 # Ensure ~/.local/bin is in the PATH for the current script execution
 export PATH="$HOME/.local/bin:$PATH"
@@ -56,6 +53,7 @@ rm -rf "$WORK_DIR"
 git clone "$REPO_URL" "$WORK_DIR"
 
 echo "==> Running the Ansible playbook..."
+ansible-galaxy install -r "$WORK_DIR/requirements.yml"
 # Use -e to pass the sudo password as an extra variable to Ansible
 ansible-playbook -c local -i 127.0.0.1, -e "ansible_become_pass='$PASSWORD'" "$WORK_DIR/main.yml"
 
