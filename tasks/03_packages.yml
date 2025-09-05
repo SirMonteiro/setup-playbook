@@ -1,4 +1,9 @@
 ---
+- name: 03 | PREPARE | Install CLI tool packages
+  become: true
+  community.general.pacman:
+    name: "{{ cli_tools_packages }}"
+    state: present
 - name: 03 | PACKAGES | Install Hyprland and DE packages
   become: true
   community.general.pacman:

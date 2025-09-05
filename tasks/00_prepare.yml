@@ -6,8 +6,3 @@
     state: present
     update_cache: true
 
-- name: 00 | PREPARE | Install CLI tool packages
-  become: true
-  community.general.pacman:
-    name: "{{ cli_tools_packages }}"
-    state: present
