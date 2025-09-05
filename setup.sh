@@ -58,6 +58,6 @@ git clone "$REPO_URL" "$WORK_DIR"
 echo "==> Running the Ansible playbook..."
 ansible-galaxy install -r "$WORK_DIR/requirements.yml"
 # Use -e to pass the sudo password as an extra variable to Ansible
-ansible-playbook -c local -i 127.0.0.1, -e "ansible_become_pass='$PASSWORD'" "$WORK_DIR/main.yml"
+ansible-playbook -c local -i 127.0.0.1, -e "ansible_become_pass='$PASSWORD'"  -e "EMAIL='$EMAIL'" -e "NAME='$NAME'" "$WORK_DIR/main.yml"
 
 echo "==> Workstation setup complete!"
