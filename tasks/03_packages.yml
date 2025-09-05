@@ -19,7 +19,7 @@
 
 - name: 03 | PACKAGES | Install AUR packages with paru
   become: true
-  become_user: "{{ ansible_user_id }}"
+  become_user: aur_builder
   kewlfft.aur.aur:
     name: "{{ aur_packages }}"
     use: paru
