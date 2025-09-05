@@ -7,3 +7,6 @@
       chezmoi init --apply https://github.com/sirmonteiro/dotfiles.git
   args:
     creates: "{{ ansible_env.HOME }}/.local/share/chezmoi"
+  environment:
+    EMAIL: "{{ lookup('env', 'EMAIL') }}"
+    NAME: "{{ lookup('env', 'NAME') }}"
