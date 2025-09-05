@@ -78,11 +78,11 @@ desktop_apps_packages:
 development_packages:
   - docker
   - github-cli
+  - mise
+  - zed
+  - zen-browser-bin
 
 # Packages to be installed from the AUR using paru.
 aur_packages:
-  - paru # It will install itself
   - papirus-folders-catppuccin-git
-  - mise            # Tool version manager
-  - zed-editor      # Zed text editor
-  - zen-browser-bin # Zen browser from your dotfiles
+
