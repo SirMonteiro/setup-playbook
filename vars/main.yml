@@ -29,6 +29,7 @@ cli_tools_packages:
   - tmux
   - unzip
   - zip
+  - chezmoi
   - ncdu
 
 # Packages for the Hyprland desktop environment and its ecosystem.
