@@ -77,10 +77,6 @@ desktop_apps_packages:
 # Development tools.
 development_packages:
   - docker
-  - rustup          # The recommended way to install Rust toolchains
-  - go
-  - nodejs
-  - npm
   - github-cli
 
 # Packages to be installed from the AUR using paru.
