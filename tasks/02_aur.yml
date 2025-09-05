@@ -31,7 +31,7 @@
 
     - name: 02 | AUR | Build and install paru
       kewlfft.aur.aur:
-        name: paru
+        name: paru-bin
         use: makepkg
       become: yes
       become_user: aur_builder
