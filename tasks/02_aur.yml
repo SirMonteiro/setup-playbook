@@ -1,4 +1,18 @@
 ---
+- name: Create the `aur_builder` user
+  become: yes
+  ansible.builtin.user:
+    name: aur_builder
+    create_home: false
+
+- name: Allow the `aur_builder` user to run `sudo pacman` without a password
+  become: yes
+  ansible.builtin.lineinfile:
+    path: /etc/sudoers.d/11-install-aur_builder
+    line: 'aur_builder ALL=(ALL) NOPASSWD: /usr/bin/pacman'
+    create: yes
+    validate: 'visudo -cf %s'
+
 - name: 02 | AUR | Check if paru is already installed
   ansible.builtin.command: which paru
   register: paru_exists
@@ -16,10 +30,9 @@
         update: false
 
     - name: 02 | AUR | Build and install paru
-      become: true
-      become_user: "{{ ansible_user_id }}"
-      ansible.builtin.shell:
-        cmd: makepkg -si --noconfirm
-        chdir: /tmp/paru
-      args:
-        creates: /usr/bin/paru
+      kewlfft.aur.aur:
+        name: paru
+        use: makepkg
+      become: yes
+      become_user: aur_builder
+
