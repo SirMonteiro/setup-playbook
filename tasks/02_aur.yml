@@ -1,0 +1,25 @@
+---
+- name: 02 | AUR | Check if paru is already installed
+  ansible.builtin.command: which paru
+  register: paru_exists
+  changed_when: false
+  ignore_errors: true
+
+- name: 02 | AUR | Install paru (AUR helper)
+  when: paru_exists.rc != 0
+  block:
+    - name: 02 | AUR | Clone paru repository
+      ansible.builtin.git:
+        repo: https://aur.archlinux.org/paru.git
+        dest: /tmp/paru
+        clone: true
+        update: false
+
+    - name: 02 | AUR | Build and install paru
+      become: true
+      become_user: "{{ ansible_user_id }}"
+      ansible.builtin.shell:
+        cmd: makepkg -si --noconfirm
+        chdir: /tmp/paru
+      args:
+        creates: /usr/bin/paru

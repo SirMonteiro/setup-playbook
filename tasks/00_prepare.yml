@@ -1,0 +1,13 @@
+---
+- name: 00 | PREPARE | Install core system packages
+  become: true
+  community.general.pacman:
+    name: "{{ core_packages }}"
+    state: present
+    update_cache: true
+
+- name: 00 | PREPARE | Install CLI tool packages
+  become: true
+  community.general.pacman:
+    name: "{{ cli_tools_packages }}"
+    state: present

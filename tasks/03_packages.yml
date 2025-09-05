@@ -1,0 +1,26 @@
+---
+- name: 03 | PACKAGES | Install Hyprland and DE packages
+  become: true
+  community.general.pacman:
+    name: "{{ hyprland_packages }}"
+    state: present
+
+- name: 03 | PACKAGES | Install Desktop Application packages
+  become: true
+  community.general.pacman:
+    name: "{{ desktop_apps_packages }}"
+    state: present
+
+- name: 03 | PACKAGES | Install Development packages
+  become: true
+  community.general.pacman:
+    name: "{{ development_packages }}"
+    state: present
+
+- name: 03 | PACKAGES | Install AUR packages with paru
+  become: true
+  become_user: "{{ ansible_user_id }}"
+  kewlfft.aur.aur:
+    name: "{{ aur_packages }}"
+    use: paru
+    state: present

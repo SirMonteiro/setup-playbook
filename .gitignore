@@ -1,0 +1,7 @@
+.vagrant
+*.log
+.vscode
+*.bak
+tmp/
+temp/
+

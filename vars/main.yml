@@ -1,0 +1,93 @@
+---
+# User-specific variables for dotfiles
+# Ansible will prompt for these values when the playbook runs.
+user_name: "Gabriel"
+user_email: "sirmonteiro@tuta.io"
+
+# --- Package Lists ---
+
+# Core packages required for the system to function and for building AUR packages.
+core_packages:
+  - base-devel
+  - linux-headers
+  - git
+  - curl
+  - wget
+  - zsh
+  - openssh
+
+# Command-line utilities for an enhanced terminal experience.
+cli_tools_packages:
+  - btop
+  - htop
+  - fastfetch
+  - eza         # Modern replacement for 'ls'
+  - bat         # Modern replacement for 'cat'
+  - fzf
+  - ripgrep
+  - fd
+  - tmux
+  - unzip
+  - zip
+  - neofetch
+  - ncdu
+
+# Packages for the Hyprland desktop environment and its ecosystem.
+hyprland_packages:
+  - hyprland
+  - hyprcursor
+  - hypridle
+  - hyprlock
+  - hyprpicker
+  - waybar
+  - ulauncher       # Application launcher mentioned in your dotfiles
+  - swaync          # Notification daemon
+  - swww            # Wallpaper daemon
+  - wlogout         # Logout menu
+  - wl-clipboard    # Wayland clipboard utilities
+  - grim            # Screenshot tool
+  - slurp           # Region selection for screenshots
+  - polkit-kde-agent
+  - qt5ct
+  - qt6ct
+  - kvantum
+  - pipewire
+  - wireplumber
+  - pipewire-pulse
+  - pipewire-jack
+  - pipewire-alsa
+  - pwvucontrol
+  - networkmanager
+  - bluez
+  - bluez-utils
+  - brightnessctl
+  - ttf-jetbrains-mono-nerd # Font for Waybar/Terminal
+  - otf-monaspace-nerd    # Font for Ghostty/Zed from your dotfiles
+
+# GUI applications.
+desktop_apps_packages:
+  - dolphin
+  - ghostty           # Terminal from your dotfiles
+  - gnome-control-center
+  - qalculate-gtk
+  - vlc
+  - mpv
+  - flameshot
+  - gparted
+
+# Development tools.
+development_packages:
+  - docker
+  - rustup          # The recommended way to install Rust toolchains
+  - go
+  - nodejs
+  - npm
+  - github-cli
+
+# Packages to be installed from the AUR using paru.
+aur_packages:
+  - paru # It will install itself
+  - papirus-folders-catppuccin-git
+  - mise            # Tool version manager
+  - zed-editor      # Zed text editor
+  - zen-browser-bin # Zen browser from your dotfiles

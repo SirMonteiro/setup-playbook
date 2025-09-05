@@ -1,0 +1,37 @@
+---
+- name: "SirMonteiro's Arch Workstation Setup"
+  hosts: all
+  connection: local
+  gather_facts: true
+
+  vars_files:
+    - vars/main.yml
+
+  tasks:
+    - name: Run Initial Preparation Tasks
+      ansible.builtin.import_tasks: tasks/00_prepare.yml
+      tags: ['prepare']
+
+    - name: Configure System Repositories
+      ansible.builtin.import_tasks: tasks/01_repositories.yml
+      tags: ['repos']
+
+    - name: Setup AUR Helper
+      ansible.builtin.import_tasks: tasks/02_aur.yml
+      tags: ['aur']
+
+    - name: Install System and AUR Packages
+      ansible.builtin.import_tasks: tasks/03_packages.yml
+      tags: ['packages']
+
+    - name: Configure Shell and System Services
+      ansible.builtin.import_tasks: tasks/04_shell_and_services.yml
+      tags: ['shell', 'services']
+
+    - name: Configure Rust Toolchain
+      ansible.builtin.import_tasks: tasks/05_rust.yml
+      tags: ['rust', 'dev']
+
+    - name: Apply Personal Dotfiles
+      ansible.builtin.import_tasks: tasks/06_dotfiles.yml
+      tags: ['dotfiles']

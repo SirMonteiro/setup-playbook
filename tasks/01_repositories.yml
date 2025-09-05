@@ -1,0 +1,35 @@
+---
+- name: 01 | REPOSITORIES | Receive Chaotic-AUR GPG key
+  become: true
+  ansible.builtin.shell:
+    cmd: pacman-key --recv-key 3056513887B78AEB --keyserver keyserver.ubuntu.com
+  args:
+    creates: /etc/pacman.d/gnupg/openpgp-revocs.d/3056513887B78AEB.rev
+
+- name: 01 | REPOSITORIES | Locally sign the Chaotic-AUR GPG key
+  become: true
+  ansible.builtin.shell:
+    cmd: pacman-key --lsign-key 3056513887B78AEB
+  changed_when: false # This command doesn't provide reliable change output
+
+- name: 01 | REPOSITORIES | Install Chaotic-AUR keyring and mirrorlist
+  become: true
+  community.general.pacman:
+    name:
+      - 'https://cdn-mirror.chaotic.cx/chaotic-aur/chaotic-keyring.pkg.tar.zst'
+      - 'https://cdn-mirror.chaotic.cx/chaotic-aur/chaotic-mirrorlist.pkg.tar.zst'
+    state: present
+
+- name: 01 | REPOSITORIES | Add Chaotic-AUR to pacman.conf
+  become: true
+  ansible.builtin.blockinfile:
+    path: /etc/pacman.conf
+    block: |
+      [chaotic-aur]
+      Include = /etc/pacman.d/chaotic-mirrorlist
+    marker: "# {mark} ANSIBLE MANAGED BLOCK FOR CHAOTIC-AUR"
+
+- name: 01 | REPOSITORIES | Synchronize package databases after adding repo
+  become: true
+  community.general.pacman:
+    update_cache: true

@@ -1,0 +1,13 @@
+---
+- name: 05 | RUST | Check if rustup is configured
+  ansible.builtin.stat:
+    path: "{{ ansible_env.HOME }}/.cargo/bin/rustc"
+  register: rustc_stat
+
+- name: 05 | RUST | Install default Rust toolchain with rustup
+  when: not rustc_stat.stat.exists
+  become: true
+  become_user: "{{ ansible_user_id }}"
+  ansible.builtin.shell:
+    cmd: rustup default stable -y
+  changed_when: true # This command always changes state on first run
