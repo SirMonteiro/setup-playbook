@@ -39,6 +39,9 @@ prompt_sudo() {
 # --- Main Execution ---
 prompt_sudo
 
+read -s -p "Enter name: " NAME
+read -s -p "Enter email: " EMAIL
+
 echo "==> Synchronizing package databases and updating system..."
 echo "$PASSWORD" | sudo -S pacman -Syyu --noconfirm
 

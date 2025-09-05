@@ -4,6 +4,6 @@
   become_user: "{{ ansible_user_id }}"
   ansible.builtin.shell:
     cmd: >
-      chezmoi init --apply --promptString 'What is your email address'={{ user_email }} --promptString 'Your name'={{ user_name }} https://github.com/sirmonteiro/dotfiles.git
+      chezmoi init --apply https://github.com/sirmonteiro/dotfiles.git
   args:
     creates: "{{ ansible_env.HOME }}/.local/share/chezmoi"
