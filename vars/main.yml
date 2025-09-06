@@ -9,15 +9,16 @@
 # Core packages required for the system to function and for building AUR packages.
 core_packages:
   - base-devel
-  - linux-headers
   - git
   - curl
   - wget
+  - vim
   - zsh
   - openssh
 
 # Command-line utilities for an enhanced terminal experience.
 cli_tools_packages:
+  - mesa-utils
   - btop
   - htop
   - fastfetch
@@ -37,10 +38,50 @@ cli_tools_packages:
   - zsh-theme-powerlevel10k
   - zsh-syntax-highlighting
   - zsh-autosuggestions
+  - flatpak
+  - pacman-contrib
+  - downgrade
+  - ethtool
+  - dnsutils
+  - findutils
+  - hwinfo
+  - hwdetect
+  - inxi
+  - meld
+  - nano-syntax-highlighting
+  - rsync
+  - sed
+  - ripgrep
+  - nano
+  - efitools
+  - nfs-utils
+  - smartmontools
+  - dmidecode
+  - hdparm
+  - hw-detect
+  - linux-firmware
+  - unrar
+  - tar
+  - xz
+  - mlocate
+  - bash-completion
+  - bc
+  - inetutils
+  - iotop
+  - jpegoptim
+  - netctl
+  - optipng
+  - oxipng
+  - pam-u2f
+  - pcsc-tools
+  - qt5-imageformats
+  - rebuild-detector
+  - zola
 
 # Packages for the Hyprland desktop environment and its ecosystem.
 hyprland_packages:
   - hyprland
+  - xorg-xwayland
   - hyprcursor
   - hypridle
   - hyprlock
@@ -53,9 +94,12 @@ hyprland_packages:
   - wl-clipboard    # Wayland clipboard utilities
   - grim            # Screenshot tool
   - slurp           # Region selection for screenshots
+  - clipse
+  - xdg-desktop-portal-hyprland
   - polkit-kde-agent
+  - uwsm
   - qt5ct
-  - qt6ct
+  - qt6ct-kde
   - kvantum
   - pipewire
   - wireplumber
@@ -64,23 +108,56 @@ hyprland_packages:
   - pipewire-alsa
   - pwvucontrol
   - networkmanager
+  - networkmanager-openvpn
   - bluez
   - bluez-utils
+  - blueman
   - brightnessctl
   - ttf-jetbrains-mono-nerd # Font for Waybar/Terminal
   - otf-monaspace-nerd    # Font for Ghostty/Zed from your dotfiles
-  - flatpak
+  - power-profiles-daemon
+  - powertop
+  - ffmpegthumbnailer
+  - gst-plugin-pipewire
+  - gst-plugin-bad
+  - gst-plugin-ugly
+  - xdg-user-dirs
+  - xdg-utils
+  - gtk-engine-murrine
+  - hyprshell
 
 # GUI applications.
 desktop_apps_packages:
   - dolphin
+  - dolphin-plugins
   - ghostty           # Terminal from your dotfiles
   - gnome-control-center
+  - gnome-calendar
+  - gnome-text-editor
   - qalculate-gtk
   - vlc
   - mpv
   - flameshot
   - gparted
+  - ark
+  - noto-fonts-cjk
+  - ttf-opensans
+  - ttf-liberation
+  - ttf-dejavu
+  - opendesktop-fonts
+  - noto-fonts
+  - freetype2
+  - noto-fonts-emoji
+  - noto-color-emoji-fontconfig
+  - awesome-terminal-fonts
+  - adobe-source-han-sans-cn-fonts
+  - adobe-source-han-sans-jp-fonts
+  - adobe-source-han-sans-kr-fonts
+  - iriunwebcam-bin
+  - kdiskmark
+  - lagrange
+  - loupe
+  - okular
 
 # Development tools.
 development_packages:
