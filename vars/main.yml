@@ -77,6 +77,14 @@ cli_tools_packages:
   - qt5-imageformats
   - rebuild-detector
   - zola
+  - btrfs-assistant
+  - exfatprogs
+  - f2fs-tools
+  - lsb-release
+  - netctl
+  - xfsprogs
+  - zenity
+
 
 # Packages for the Hyprland desktop environment and its ecosystem.
 hyprland_packages:
@@ -99,8 +107,11 @@ hyprland_packages:
   - polkit-kde-agent
   - uwsm
   - qt5ct
+  - qt5-imageformats
   - qt6ct-kde
+  - qt6-imageformats
   - kvantum
+  - kvantum-qt5
   - pipewire
   - wireplumber
   - pipewire-pulse
@@ -166,6 +177,7 @@ development_packages:
   - mise
   - zed
   - zen-browser-bin
+  - perl
 
 # Packages to be installed from the AUR using paru.
 aur_packages:
